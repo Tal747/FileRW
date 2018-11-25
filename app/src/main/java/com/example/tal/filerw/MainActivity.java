@@ -1,8 +1,11 @@
 package com.example.tal.filerw;
 
 import android.content.Context;
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.TextView;
@@ -29,6 +32,21 @@ public class MainActivity extends AppCompatActivity {
 
         et1 = findViewById(R.id.et1);
         tv1 = findViewById(R.id.tv1);
+    }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        getMenuInflater().inflate(R.menu.main, menu);
+        return super.onCreateOptionsMenu(menu);
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        int id = item.getItemId();
+        Intent t = new Intent(this, CreditsActivity.class);
+        if (id == R.id.MenuCredits)
+            startActivity(t);
+        return super.onOptionsItemSelected(item);
     }
 
     public void OCbtn1(View view) {
